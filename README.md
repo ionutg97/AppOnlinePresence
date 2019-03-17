@@ -8,3 +8,5 @@ Instrumentul va oferi suport atât pentru participanti (i.e. studenti), cât si 
  Suplimentar, persoanelor prezente li se pot acorda punctaje si/sau li se pot asocia termeni de continut (tag-uri) ori notite.
  De recurs la o metoda eficienta de prevenire a efectuarii prezentelor false. Se vor genera, via tehnici de vizualizare a datelor, 
 rapoarte intermediare sau finale privind prezentele si punctajele acumulate de un individ/grup, inclusiv statistici, comparatii, filtrari multi-criteriale etc.
+
+Asta este tot...
