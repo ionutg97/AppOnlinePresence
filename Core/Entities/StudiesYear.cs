@@ -4,14 +4,11 @@ using System.Text;
 
 namespace Core.Entities
 {
-    public class Student
+    public class StudiesYear
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
 
-        public Group Group { get; set; }
-
-        public StudiesYear StudiesYear { get; set; }
-
+        public List<Student> Students { get; set; }
     }
 }

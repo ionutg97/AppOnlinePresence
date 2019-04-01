@@ -8,7 +8,7 @@ namespace Core.Repositories
     public interface IStudentsRepository
     {
         Task<Student> GetById(Guid Id);
-        Task<IEnumerable<Student>> GetAll ();
+        Task<IEnumerable<Student>> GetAll();
 
     }
 }
