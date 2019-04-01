@@ -1,0 +1,2 @@
+Salut. 
+Ma numesc Ionut si astazi voi testa Git.

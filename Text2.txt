@@ -1,0 +1,3 @@
+Feature 
+
+Fisierul 2. Testez notiunea de new Feature.
