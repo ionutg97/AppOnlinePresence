@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Core.Entities.Authentication;
+using System;
 using System.Collections.Generic;
 
 namespace Core.Entities
@@ -9,13 +10,9 @@ namespace Core.Entities
         public DateTime HourStart { get; set; }
         public DateTime HourEnd { get; set; }
 
-        public Professor Professor { get; set; }
-
-        public Group Group { get; set; }
-
+        public TeacherAccount TeacherAccount { get; set; }
         public Cours Cours { get; set; }
-
+        public Laboratory Laboratory { get; set; }
         public Classroom Classroom { get; set; }
-
     }
 }

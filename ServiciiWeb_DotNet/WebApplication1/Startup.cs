@@ -1,15 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using Application.Authentication;
+using Application.Services;
+using Core.Entities.Authentication;
+using Core.Entities.Login;
+using Core.Repositories;
+using Core.Services;
+using Data;
+using Data.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using System;
 
 namespace WebApplication1
 {
@@ -25,6 +28,59 @@ namespace WebApplication1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IUsersRepository, UsersRepository>();
+            services.AddScoped<ITeachersAccountRepository, TeachersAccountRepository>();
+
+            services.AddScoped<IUsersServices, UsersService>();
+            services.AddScoped<ITeachersAccountService, TeacherAccountService>();
+
+            services.AddDbContext<AppDbContext>();
+
+
+            AppDbContext dbContext = new AppDbContext();
+            IAuthentication authentication = new AuthenticationHandler(dbContext);
+            services.AddAuthorization(options =>
+            {
+
+                options.AddPolicy("Admin", policy =>
+                   policy.RequireAssertion(async context =>
+                   {
+                       String receive = ((AuthorizationFilterContext)(context.Resource)).HttpContext.Request.Headers["Authorization"];
+
+                       if (receive != null)
+                       {
+                           string[] words = receive.Split(' ');
+                           TeacherAccount result = await authentication.FindTeacherAccount(words[0], words[1]);
+                           return (result != null);
+                       }
+                       else
+                           return false;
+                   }));
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("User", async policy =>
+                  policy.RequireAssertion(async context =>
+                  {
+                      String receive = ((AuthorizationFilterContext)(context.Resource)).HttpContext.Request.Headers["Authorization"];
+
+                      if (receive != null)
+                      {
+                          string[] words = receive.Split(' ');
+                         
+                          TeacherAccount result = await authentication.FindTeacherAccount(words[0], words[1]);
+                          User resultUser = await authentication.FindUserAccount(words[0], words[1]);
+                          if (result != null || resultUser != null)
+                              return true;
+                          else
+                              return false;
+                      }
+                      else
+                          return false;
+                  }));
+            });
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -42,9 +98,14 @@ namespace WebApplication1
                 app.UseExceptionHandler("/Error");
             }
 
-             //app.UseHttpsRedirection();
+            //using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            //{
+            //    scope.ServiceProvider.GetService<AppDbContext>().Database.Migrate();
+            //}
+
+            //app.UseHttpsRedirection();
             app.UseStaticFiles();
-            
+
             app.UseMvc();
         }
     }

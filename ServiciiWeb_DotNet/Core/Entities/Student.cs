@@ -8,10 +8,5 @@ namespace Core.Entities
     {
         public Guid Id { get; set; }
         public string Name { get; set; }
-
-        public Group Group { get; set; }
-
-        public StudiesYear StudiesYear { get; set; }
-
     }
 }
