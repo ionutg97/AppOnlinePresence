@@ -19,6 +19,65 @@ namespace Data.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("Core.Entities.Attendance.Attendance", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<Guid?>("ListAttendancesId");
+
+                    b.Property<int>("Nota");
+
+                    b.Property<Guid?>("StudentId");
+
+                    b.Property<string>("StudentNotification");
+
+                    b.Property<string>("TeacherNotification");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ListAttendancesId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("Core.Entities.Attendance.ListAttendances", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Name");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ListAttendances");
+                });
+
+            modelBuilder.Entity("Core.Entities.Authentication.TeacherAccount", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("TeacherAccountName")
+                        .IsRequired();
+
+                    b.Property<string>("TeacherFullName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TeacherAccountName")
+                        .IsUnique();
+
+                    b.ToTable("TeacherAccounts");
+                });
+
             modelBuilder.Entity("Core.Entities.Classroom", b =>
                 {
                     b.Property<Guid>("Id")
@@ -48,23 +107,51 @@ namespace Data.Migrations
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<Guid?>("CoursId");
+
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CoursId");
 
                     b.ToTable("Groups");
                 });
 
-            modelBuilder.Entity("Core.Entities.Professor", b =>
+            modelBuilder.Entity("Core.Entities.Laboratory", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<Guid?>("GroupId");
 
                     b.Property<string>("Name");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Professor");
+                    b.HasIndex("GroupId");
+
+                    b.ToTable("Laboratories");
+                });
+
+            modelBuilder.Entity("Core.Entities.Login.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasMaxLength(100);
+
+                    b.Property<string>("UserName")
+                        .IsRequired();
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserName")
+                        .IsUnique();
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Core.Entities.Student", b =>
@@ -108,13 +195,13 @@ namespace Data.Migrations
 
                     b.Property<Guid?>("CoursId");
 
-                    b.Property<Guid?>("GroupId");
-
                     b.Property<DateTime>("HourEnd");
 
                     b.Property<DateTime>("HourStart");
 
-                    b.Property<Guid?>("ProfessorId");
+                    b.Property<Guid?>("LaboratoryId");
+
+                    b.Property<Guid?>("TeacherAccountId");
 
                     b.HasKey("Id");
 
@@ -122,20 +209,45 @@ namespace Data.Migrations
 
                     b.HasIndex("CoursId");
 
-                    b.HasIndex("GroupId");
+                    b.HasIndex("LaboratoryId");
 
-                    b.HasIndex("ProfessorId");
+                    b.HasIndex("TeacherAccountId");
 
                     b.ToTable("Timetables");
                 });
 
-            modelBuilder.Entity("Core.Entities.Student", b =>
+            modelBuilder.Entity("Core.Entities.Attendance.Attendance", b =>
+                {
+                    b.HasOne("Core.Entities.Attendance.ListAttendances")
+                        .WithMany("Attendances")
+                        .HasForeignKey("ListAttendancesId");
+
+                    b.HasOne("Core.Entities.Student", "Student")
+                        .WithMany()
+                        .HasForeignKey("StudentId");
+                });
+
+            modelBuilder.Entity("Core.Entities.Group", b =>
+                {
+                    b.HasOne("Core.Entities.Cours")
+                        .WithMany("Groups")
+                        .HasForeignKey("CoursId");
+                });
+
+            modelBuilder.Entity("Core.Entities.Laboratory", b =>
                 {
                     b.HasOne("Core.Entities.Group", "Group")
+                        .WithMany()
+                        .HasForeignKey("GroupId");
+                });
+
+            modelBuilder.Entity("Core.Entities.Student", b =>
+                {
+                    b.HasOne("Core.Entities.Group")
                         .WithMany("Students")
                         .HasForeignKey("GroupId");
 
-                    b.HasOne("Core.Entities.StudiesYear", "StudiesYear")
+                    b.HasOne("Core.Entities.StudiesYear")
                         .WithMany("Students")
                         .HasForeignKey("StudiesYearId");
                 });
@@ -143,20 +255,20 @@ namespace Data.Migrations
             modelBuilder.Entity("Core.Entities.Timetable", b =>
                 {
                     b.HasOne("Core.Entities.Classroom", "Classroom")
-                        .WithMany("Timetable")
+                        .WithMany()
                         .HasForeignKey("ClassroomId");
 
                     b.HasOne("Core.Entities.Cours", "Cours")
                         .WithMany()
                         .HasForeignKey("CoursId");
 
-                    b.HasOne("Core.Entities.Group", "Group")
-                        .WithMany("Timetable")
-                        .HasForeignKey("GroupId");
-
-                    b.HasOne("Core.Entities.Professor", "Professor")
+                    b.HasOne("Core.Entities.Laboratory", "Laboratory")
                         .WithMany()
-                        .HasForeignKey("ProfessorId");
+                        .HasForeignKey("LaboratoryId");
+
+                    b.HasOne("Core.Entities.Authentication.TeacherAccount", "TeacherAccount")
+                        .WithMany()
+                        .HasForeignKey("TeacherAccountId");
                 });
 #pragma warning restore 612, 618
         }
