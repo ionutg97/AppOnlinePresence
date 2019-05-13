@@ -6,7 +6,9 @@
 ###################
 # Api in DotNet gitignore
 ###################
-
+/JavaWebProject/Servers
+/JavaWebProject/attendance/Tomcat v8.5 Server at localhost-config
+/AttendanceWeb
 # custom
 .vs
 
