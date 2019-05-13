@@ -29,12 +29,17 @@ namespace WebApplication1.Controllers
 
         // get/users/ id value
         [HttpGet("test/{id}")]
-        [AllowAnonymous]
         public ActionResult<string> Get(int id)
         {
-            return "value";
+            return "Theona s-a logat cu succes! ";
         }
 
+      /*  [HttpGet("logare/{id}")]
+        public ActionResult<string> GetTestLogare(int id)
+        {
+            return "Logare cu succes!";
+        }
+        */
         // get/users/ attendanceName/ userName
         [HttpGet("attendance/{attendanceName}/{userName}")]
         [ProducesResponseType(201, Type = typeof(Attendance))]

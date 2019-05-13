@@ -1,0 +1,111 @@
+/.metadata/
+.classpath
+.project
+.settings/
+
+###################
+# Api in DotNet gitignore
+###################
+
+# custom
+\ServiciiWeb_DotNet\.vs
+
+\ServiciiWeb_DotNet\Application\[Oo]bj\
+\ServiciiWeb_DotNet\Application\[Bb]in\
+\ServiciiWeb_DotNet\Application\[Ll]ib\
+\ServiciiWeb_DotNet\Application\.csproj
+
+
+\ServiciiWeb_DotNet\Core\[Oo]bj\
+\ServiciiWeb_DotNet\Core\[Bb]in\
+\ServiciiWeb_DotNet\Core\[Ll]ib\
+
+
+\ServiciiWeb_DotNet\Data\[Oo]bj\
+\ServiciiWeb_DotNet\Data\[Bb]in\
+\ServiciiWeb_DotNet\Data\[Ll]ib\
+\ServiciiWeb_DotNet\Data\.csproj
+
+
+\ServiciiWeb_DotNet\WebApplication1\[Oo]bj\
+\ServiciiWeb_DotNet\WebApplication1\[Bb]in\
+\ServiciiWeb_DotNet\WebApplication1\[Ll]ib\
+\ServiciiWeb_DotNet\WebApplication1\*.csproj
+
+
+#globs
+*.sln.cache
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+*.classpath
+*.project
+*.mf
+*.properties
+*.prefs
+*.component
+
+\JavaWebProject\attendance\attendanceServlet\.settings
+\JavaWebProject\attendance\attendanceServlet\.settings
+
+*.metadata
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet

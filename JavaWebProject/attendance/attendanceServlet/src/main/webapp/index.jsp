@@ -10,9 +10,11 @@
 </head>
 <body>
 	<form action="Adaugare" method="post">
-		<input type="text" name="user" /> <input type="text" name="pass" /> <input
-			type="submit" name="Adauga" />
+		<input type="text" name="user" />
+		<input type="text" name="pass" /> 
+		<input type="submit" name="Adauga" />
 	</form>
+	
 	<ol>
 		<%
 	ApiClient a = new ApiClient();
