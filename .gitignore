@@ -8,32 +8,6 @@
 ###################
 
 # custom
-\ServiciiWeb_DotNet\.vs
-
-\ServiciiWeb_DotNet\Application\[Oo]bj\
-\ServiciiWeb_DotNet\Application\[Bb]in\
-\ServiciiWeb_DotNet\Application\[Ll]ib\
-\ServiciiWeb_DotNet\Application\.csproj
-
-
-\ServiciiWeb_DotNet\Core\[Oo]bj\
-\ServiciiWeb_DotNet\Core\[Bb]in\
-\ServiciiWeb_DotNet\Core\[Ll]ib\
-
-
-\ServiciiWeb_DotNet\Data\[Oo]bj\
-\ServiciiWeb_DotNet\Data\[Bb]in\
-\ServiciiWeb_DotNet\Data\[Ll]ib\
-\ServiciiWeb_DotNet\Data\.csproj
-
-
-\ServiciiWeb_DotNet\WebApplication1\[Oo]bj\
-\ServiciiWeb_DotNet\WebApplication1\[Bb]in\
-\ServiciiWeb_DotNet\WebApplication1\[Ll]ib\
-\ServiciiWeb_DotNet\WebApplication1\*.csproj
-
-
-# custom
 .vs
 
 # build
