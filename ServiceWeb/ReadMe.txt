@@ -1,1 +1,0 @@
-Aplicatie REST for communication
