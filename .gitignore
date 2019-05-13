@@ -1,0 +1,133 @@
+/.metadata/
+.classpath
+.project
+.settings/
+
+###################
+# Api in DotNet gitignore
+###################
+
+# custom
+.vs
+
+# build
+[Oo]bj/
+[Bb]in/
+[Ll]ib/
+packages/
+dist/
+TestResults/
+Logs/
+node_modules/
+.vscode
+
+# globs
+Makefile.in
+*.DS_Store
+*.sln.cache
+*.suo
+*.cache
+*.pidb
+*.userprefs
+*.usertasks
+config.log
+config.make
+config.status
+aclocal.m4
+install-sh
+autom4te.cache/
+*.user
+*.tar.gz
+tarballs/
+test-results/
+Thumbs.db
+
+# Mac bundle stuff
+*.dmg
+*.app
+
+# resharper
+*_Resharper.*
+*.Resharper
+
+# dotCover
+*.dotCover
+yarn-error.log
+/.vscode
+
+#globs
+*.sln.cache
+
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+*.classpath
+*.project
+*.mf
+*.properties
+*.prefs
+*.component
+
+\JavaWebProject\attendance\attendanceServlet\.settings
+\JavaWebProject\attendance\attendanceServlet\.settings
+
+*.metadata
+
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
+
+# CDT-specific (C/C++ Development Tooling)
+.cproject
+
+# CDT- autotools
+.autotools
+
+# Java annotation processor (APT)
+.factorypath
+
+# PDT-specific (PHP Development Tools)
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# Tern plugin
+.tern-project
+
+# TeXlipse plugin
+.texlipse
+
+# STS (Spring Tool Suite)
+.springBeans
+
+# Code Recommenders
+.recommenders/
+
+# Annotation Processing
+.apt_generated/
+
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet

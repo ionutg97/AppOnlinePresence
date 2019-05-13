@@ -1,1 +1,0 @@
-DataBase script pentru crearea automata a bazei de date.
