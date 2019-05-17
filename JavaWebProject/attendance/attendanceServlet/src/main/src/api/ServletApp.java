@@ -1,15 +1,15 @@
 package api;
-import java.io.*;
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
-import api.ApiClient;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.jasper.tagplugins.jstl.core.Out;
+import DTO.UserDTO;
 
 /**
  * Servlet implementation class ServletApp
@@ -53,8 +53,13 @@ public class ServletApp extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		String uname=request.getParameter("username");
 		String upass=request.getParameter("pass");
-		String raspuns = a.DoLogin(uname, upass);
-		if(raspuns.equals("\"Theona\""))
+		
+		//String raspuns = a.doLogin(uname, upass);
+		UserDTO user =new UserDTO("ionut","123456","123456");
+		boolean req=a.createNewUserAccount(user);
+		//a.getAllTimetable(request.getParameter("username"), request.getParameter("pass"));
+		//if(raspuns.equals("\"Logare cu succes!\""))
+		if(req==true)
 		{
 			response.sendRedirect("first-page-student.jsp");
 			//response.getOutputStream().print(raspuns);

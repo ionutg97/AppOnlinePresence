@@ -33,26 +33,26 @@
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
-	<dependency>
-  			<groupId>org.slf4j</groupId>
-  			<artifactId>slf4j-api</artifactId>
-  			<version>1.7.21</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.apache.logging.log4j</groupId>
-  			<artifactId>log4j-core</artifactId>
-  			<version>2.7</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.apache.logging.log4j</groupId>
-  			<artifactId>log4j-api</artifactId>
-  			<version>2.7</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>org.apache.logging.log4j</groupId>
-  			<artifactId>log4j-slf4j-impl</artifactId>
-  			<version>2.7</version>
-  		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.21</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+			<version>2.7</version>
+		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
 			<artifactId>jersey-container-servlet-core</artifactId>
@@ -64,6 +64,11 @@
 		<dependency>
 			<groupId>org.glassfish.jersey.core</groupId>
 			<artifactId>jersey-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.media</groupId>
+			<artifactId>jersey-media-json-jackson</artifactId>
+			<version>2.26</version>
 		</dependency>
 		<dependency>
 			<groupId>org.glassfish.jersey.containers</groupId>
