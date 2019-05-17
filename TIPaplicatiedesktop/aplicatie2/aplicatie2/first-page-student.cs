@@ -12,67 +12,37 @@ namespace aplicatie2
 {
     public partial class first_page_student : Form
     {
-        private bool isCollapsed;
-        int t1 = 41;
+        int t1 = 40;
+        int t2 = 40;
+        int t4 = 40;
         public first_page_student()
         {
             InitializeComponent();
         }
 
-        private void hover1(object sender, EventArgs e)
+        private void button2_MouseHover(object sender, EventArgs e)
         {
+            this.panel11.Size = new Size(this.panel11.Size.Width, t4);
+            timer1.Start();
         }
 
-        private void first_page_student_Load(object sender, EventArgs e)
+        private void button2_MouseLeave(object sender, EventArgs e)
         {
-
+            timer1.Stop();
+            t1 = 40;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(isCollapsed)
+            if(t1>255)
             {
-                panel11.Height += 43;
-                if(panel11.Size==panel11.MaximumSize)
-                {
-                    timer1.Stop();
-                    isCollapsed = false;
-                }
-                else
-                {
-                    panel11.Height -= 43;
-                    if (panel11.Size == panel11.MinimumSize)
-                    {
-                        timer1.Stop();
-                        isCollapsed = true;
-                    }
-                }
+                timer1.Stop();
             }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
-
-        private void button9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            timer1.Start();
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button11_Click(object sender, EventArgs e)
-        {
-
+            else
+            {
+                this.panel11.Size = new Size(this.panel11.Size.Width, t1);
+                t1 += 5;
+            }
         }
     }
 }
