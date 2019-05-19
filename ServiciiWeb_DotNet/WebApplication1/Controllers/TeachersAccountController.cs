@@ -54,7 +54,6 @@ namespace WebApplication1.Controllers
                 {
                     return BadRequest(ModelState);
                 }
-
                 TeacherAccount teacher = await teacherAccountService.RegisterNewTeachersAsync(newTeacherAccount);
                 var uri = new Uri($"{Request.GetDisplayUrl()}/{teacher.Id}");
 

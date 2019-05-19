@@ -27,14 +27,13 @@ namespace WebApplication1.Controllers
             this.userRepository = userRepository;
         }
 
-        // get/users/ id value
-        [HttpGet("test/{id}")]
-        [AllowAnonymous]
-        public ActionResult<string> Get(int id)
+        // get/users/login
+        [HttpGet("login")]
+        public ActionResult<string> GetTestLogare()
         {
-            return "value";
+            return "Logare cu succes!";
         }
-
+        
         // get/users/ attendanceName/ userName
         [HttpGet("attendance/{attendanceName}/{userName}")]
         [ProducesResponseType(201, Type = typeof(Attendance))]
