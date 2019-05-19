@@ -16,9 +16,10 @@ namespace aplicatie2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-           //Application.Run(new login());
-            //Application.Run(new signup());
-            Application.Run(new first_page_student());
+            //Application.Run(new login());
+            Application.Run(new signup());
+            //Application.Run(new first_page_student());
+            //Application.Run(new first_page_teacher());
         }
     }
 }

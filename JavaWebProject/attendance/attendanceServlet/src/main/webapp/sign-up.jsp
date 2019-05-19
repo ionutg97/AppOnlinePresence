@@ -39,27 +39,20 @@
 					<span class="login100-form-title p-b-70">
 						Sign-up
 					</span>
-					<div>
-						<input type="checkbox" name="accountType" value="User Account" checked> User Account<br>
-						<input type="checkbox" name="accountType" value="Teacher Account"> Teacher Account<br>
+					<div style="text-align: center">
+						<input type="checkbox" name="accountType" value="User Account" id="chbxuser" onchange="checkbox_changeduser()"> User Account
+						<input type="checkbox" name="accountType" value="Teacher Account" id="chbxteacher" onchange="checkbox_changedteacher()"> Teacher Account
 					</div>
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
 						<input class="input100" type="text" name="username">
 						<span class="focus-input100" data-placeholder="Username"></span>
 					</div>
-
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
 						<input class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
-					
-					<div class="wrap-input100 validate-input m-b-50" data-validate="Confirm password">
-						<input class="input100" type="password" name="confirmPass">
-						<span class="focus-input100" data-placeholder="Confirm Password"></span>
-					</div>
-				
-					
-
+					<div id="useraccount"></div>
+					<div id="teacheraccount"></div>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Sign-up
@@ -89,5 +82,31 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script>
+	var checkbox = document.getElementById("chbxuser");
+	function checkbox_changeduser() {
+        if (checkbox.checked == true) {
+        	htmlContent='<div class="wrap-input100 validate-input m-b-50" data-validate="Confirm password"><input class="input100" type="password" name="confirmPass"><span class="focus-input100" data-placeholder="Confirm Password"></span></div>'
+        	useraccount.innerHTML = htmlContent;	
+        }
+        else{
+        	htmlContent='';
+        	useraccount.innerHTML = htmlContent;
+        }
+    }
+	
+	
+	var checkbox2 = document.getElementById("chbxteacher");
+	function checkbox_changedteacher() {
+        if (checkbox2.checked == true) {
+        	htmlContent='<div class="wrap-input100 validate-input m-b-50" data-validate="Confirm password"><input class="input100" type="password" name="confirmPass"><span class="focus-input100" data-placeholder="Confirm Password"></span></div><div class="wrap-input100 validate-input m-b-50" data-validate="Enter Full Name"><input class="input100" type="text" name="fullName"><span class="focus-input100" data-placeholder="Full Name"></span></div>';
+        	teacheraccount.innerHTML = htmlContent;	
+        }
+        else{
+        	htmlContent='';
+        	teacheraccount.innerHTML = htmlContent;
+        }
+    }
+	</script>
 </body>
 </html>

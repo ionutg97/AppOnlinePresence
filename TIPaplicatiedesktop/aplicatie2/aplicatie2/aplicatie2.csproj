@@ -52,6 +52,12 @@
     <Compile Include="first-page-student.Designer.cs">
       <DependentUpon>first-page-student.cs</DependentUpon>
     </Compile>
+    <Compile Include="first-page-teacher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="first-page-teacher.Designer.cs">
+      <DependentUpon>first-page-teacher.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +74,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="first-page-student.resx">
       <DependentUpon>first-page-student.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="first-page-teacher.resx">
+      <DependentUpon>first-page-teacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>

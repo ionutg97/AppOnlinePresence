@@ -15,6 +15,7 @@ namespace aplicatie2
         public signup()
         {
             InitializeComponent();
+            hidePanelsbuton();
         }
 
         private void textBox1_GotFocussign(object sender, EventArgs e)
@@ -52,6 +53,32 @@ namespace aplicatie2
                 textBox2.Text = "Password";
                 textBox2.ForeColor = Color.Silver;
             }
+        }
+
+        private void checkBox_Changed(object sender, EventArgs e)
+        {
+            if(checkBox1.Checked==true)
+            {
+                panel1.Visible = true;
+            }
+            else
+            {
+                panel1.Visible = false;
+            }
+            if (checkBox2.Checked == true)
+            {
+                panel2.Visible = true;
+            }
+            else
+            {
+                panel2.Visible = false;
+            }
+
+        }
+        public void hidePanelsbuton()
+        {
+            panel1.Visible = false;
+            panel2.Visible = false;
         }
     }
 }

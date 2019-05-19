@@ -18,6 +18,7 @@ namespace aplicatie2
         public first_page_student()
         {
             InitializeComponent();
+           hidePanelsbuton();
         }
 
         private void button2_MouseHover(object sender, EventArgs e)
@@ -43,6 +44,14 @@ namespace aplicatie2
                 this.panel11.Size = new Size(this.panel11.Size.Width, t1);
                 t1 += 5;
             }
+        }
+        public void hidePanelsbuton()
+        {
+            panel4.Visible = false;
+        }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            panel4.Visible = true;
         }
     }
 }
