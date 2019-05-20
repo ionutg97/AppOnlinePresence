@@ -34,6 +34,12 @@ namespace WebApplication1.Controllers
             return "Theona";
         }
 
+      /*  [HttpGet("logare/{id}")]
+        public ActionResult<string> GetTestLogare(int id)
+        {
+            return "Logare cu succes!";
+        }
+        */
         // get/users/ attendanceName/ userName
         [HttpGet("attendance/{attendanceName}/{userName}")]
         [ProducesResponseType(201, Type = typeof(Attendance))]
