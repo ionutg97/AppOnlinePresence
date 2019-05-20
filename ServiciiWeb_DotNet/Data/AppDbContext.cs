@@ -15,7 +15,7 @@ namespace Data
         {
             //Database.Migrate();
         }
-        private const string Connection = @"Server=.\SQLEXPRESS01;Database=TIProject;Trusted_Connection=True;ConnectRetryCount=0";
+        private const string Connection = @"Server=.\SQLEXPRESS;Database=TIProject;Trusted_Connection=True;ConnectRetryCount=0";
         //asta e un tabel din baza ta de date, users, fiecare rand fiind o entitate user
         //public DbSet<User> Users { get; set; }
 

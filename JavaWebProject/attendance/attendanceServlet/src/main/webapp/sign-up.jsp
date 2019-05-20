@@ -35,20 +35,28 @@
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100 p-t-85 p-b-20">
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" action="ServletAppSignUP" method="post">
 					<span class="login100-form-title p-b-70">
 						Sign-up
 					</span>
+					<div style="text-align: center">
+						<input class="accounts" onclick="checkOnlyOne(this.value);" id="chbxuser" type="checkbox" name="account" value="User Account" /> User Account
+						<input class="accounts" onclick="checkOnlyOne(this.value);" id="chbxteacher" type="checkbox" name="account" value="Teacher Account" /> Teacher Account
+					</div>
 					<div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate = "Enter username">
 						<input class="input100" type="text" name="username">
 						<span class="focus-input100" data-placeholder="Username"></span>
 					</div>
-
 					<div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
 						<input class="input100" type="password" name="pass">
 						<span class="focus-input100" data-placeholder="Password"></span>
 					</div>
-
+					<div class="wrap-input100 validate-input m-b-50" data-validate="Confirm password">
+						<input class="input100" type="password" name="confirmPass">
+						<span class="focus-input100" data-placeholder="Confirm Password"></span>
+					</div>
+					<div id="useraccount"></div>
+					<div id="teacheraccount"></div>
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Sign-up
@@ -78,5 +86,35 @@
 	<script src="vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
+	<script>
+	var checkbox = document.getElementById("chbxuser");
+	var checkbox2 = document.getElementById("chbxteacher");
+
+	function checkOnlyOne(b){
+
+		var x = document.getElementsByClassName('accounts');
+		var i;
+		
+		if (checkbox2.checked == true) {
+        	htmlContent='<div class="wrap-input100 validate-input m-b-50" data-validate="Enter Full Name"><input class="input100" type="text" name="fullName"><span class="focus-input100" data-placeholder="Full Name"></span></div>';
+        	teacheraccount.innerHTML = htmlContent;	
+        }
+        else{
+        	htmlContent='';
+        	teacheraccount.innerHTML = htmlContent;
+        }
+		
+		for (i = 0; i < x.length; i++) {
+		  if(x[i].value != b) 
+			  {
+			  	x[i].checked = false;
+			  	 if (checkbox.checked == true) {
+			        	htmlContent='';
+			        	teacheraccount.innerHTML = htmlContent;
+			        }
+			  }
+		}
+	}
+	</script>
 </body>
 </html>
