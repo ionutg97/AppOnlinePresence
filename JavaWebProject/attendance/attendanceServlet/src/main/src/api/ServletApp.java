@@ -61,6 +61,7 @@ public class ServletApp extends HttpServlet {
 		//if(raspuns.equals("\"Logare cu succes!\""))
 		if(req==true)
 		{
+			
 			response.sendRedirect("first-page-student.jsp");
 			//response.getOutputStream().print(raspuns);
 			
