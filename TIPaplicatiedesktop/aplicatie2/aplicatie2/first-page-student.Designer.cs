@@ -422,7 +422,7 @@
             this.panel4.Controls.Add(this.textBox1);
             this.panel4.Location = new System.Drawing.Point(1, 2);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1000, 558);
+            this.panel4.Size = new System.Drawing.Size(1000, 578);
             this.panel4.TabIndex = 31;
             // 
             // button11

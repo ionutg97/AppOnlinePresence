@@ -54,18 +54,14 @@ namespace aplicatie2
                 textBox2.ForeColor = Color.Silver;
             }
         }
-
-        private void checkBox_Changed(object sender, EventArgs e)
+        public void hidePanelsbuton()
         {
-            if(checkBox1.Checked==true)
-            {
-                panel1.Visible = true;
-            }
-            else
-            {
-                panel1.Visible = false;
-            }
-            if (checkBox2.Checked == true)
+            panel2.Visible = false;
+        }
+
+        private void radiobtn(object sender, EventArgs e)
+        {
+            if(radioButton2.Checked==true)
             {
                 panel2.Visible = true;
             }
@@ -73,12 +69,6 @@ namespace aplicatie2
             {
                 panel2.Visible = false;
             }
-
-        }
-        public void hidePanelsbuton()
-        {
-            panel1.Visible = false;
-            panel2.Visible = false;
         }
     }
 }
